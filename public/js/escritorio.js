@@ -17,6 +17,7 @@ cajero.textContent = nombre
 //     let ultimoIndice = payload.tickets.length -1
 //     lblPendientes.textContent = payload.tickets[ultimoIndice]
 // })
+let sound = new Audio("./../audio/new-ticket.mp3")
 
 socket.on('ticketNum', (payload) => {
     let ultimoIndice = payload.tickets.length -1
@@ -37,7 +38,5 @@ btnAtender.addEventListener('click', () => {
     socket.emit('atenderTicket', () => {
         console.log("Se envió el ticket a atender");
     })
-    // socket.emit('eliminarUltimo', () => {
-    //     console.log("Se elimina el ultimo");
-    // })
+    sound.play()
 })
